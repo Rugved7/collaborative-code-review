@@ -85,7 +85,7 @@ func GenerateTokenPair(userId uuid.UUID, email, username string) (*TokenPair, er
 	}, nil
 }
 
-// validateToken validates and parses and JWT
+// validateToken validates and parses JWT
 func ValidateToken(tokenString string) (*TokenClaims, error) {
 	token, err := jwt.ParseWithClaims(tokenString, &TokenClaims{}, func(token *jwt.Token) (interface{}, error) {
 		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
